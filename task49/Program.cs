@@ -18,16 +18,16 @@ while (true)
     {
         Console.WriteLine("Введите строку и столбец элемента двумерного массива через пробел");
         string pos = Console.ReadLine();
-        var position = pos.Split(" ").Select(item => Int32.Parse(item)).ToArray();
+        var position = pos.Split(" ").Select(item => Int32.Parse(item) - 1).ToArray();
         return position;
     }
     void PrintElement(int[,] matrix, int[] position)
     {
         if (
             position[0] < matrix.GetLength(0)
-            && position[0] > 0
+            && position[0] >= 0
             && position[1] < matrix.GetLength(1)
-            && position[1] > 0
+            && position[1] >= 0
         )
         {
             Console.WriteLine($"{matrix[position[0], position[1]]}");
